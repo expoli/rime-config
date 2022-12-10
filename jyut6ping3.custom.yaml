@@ -1,0 +1,29 @@
+patch:
+  __include: base:/patch
+  style/horizontal: false
+  switches:
+    - name: ascii_mode
+      reset: 0
+      states: [ 中文, 西文 ]
+    - name: full_shape
+      states: [ 半角, 全角 ]
+    - options: [ noop, variants_hk, trad_tw, simplification ]
+      states: [ 傳統漢字, 香港傳統漢字, 臺灣傳統漢字, 大陆简化汉字 ]
+      # 修改下行，改變預設用字 [0, 1, 2, 3 --> 對應上表]
+      # Edit the following line to change the default character style
+      #    [0 = OpenCC Traditional Chinese; 1 = Hong Kong TC; 2 = Taiwan TC; 3 = Mainland Simplified Chinese]
+      # Or remove to remember user setting
+      reset: 3
+    - name: ascii_punct
+      states: [ 。，, ．， ]
+    - name: emoji_suggestion
+      # 取消下行註釋，預設啓動 emoji
+      #reset: 1
+      states: [ 冇 Emoji, 有 Emoji ]
+  translator/comment_format/+:
+    - xform/(\w+)1/${1}¹/
+    - xform/(\w+)2/${1}²/
+    - xform/(\w+)3/${1}³/
+    - xform/(\w+)4/${1}⁴/
+    - xform/(\w+)5/${1}⁵/
+    - xform/(\w+)6/${1}⁶/

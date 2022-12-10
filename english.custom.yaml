@@ -1,0 +1,20 @@
+patch:
+  style/font_point: 12
+  simplifier/opencc_config: t2s.json
+  translator/enable_user_dict: true
+  menu/page_size: 5
+  switches:
+    - name: ascii_mode
+      reset: 1
+      states: [ 中文, 西文 ]
+    - name: ascii_punct
+      reset: 1
+    - name: simplification
+      reset: 1
+      states: [ 漢字, 汉字 ]
+    - name: num_selection
+      states: [ 🔞引用 , 🔟數字]
+      reset: 0
+    - name: fold_comments
+      states: [ 展开, 叠起 ]
+      reset: 1

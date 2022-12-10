@@ -1,0 +1,35 @@
+patch:
+  switches/@next:
+    name: emoji_suggestion
+    reset: 0
+    states: [ "🈚️", "🈶️" ]
+  'engine/filters/@before 0':
+    - simplifier@emoji_suggestion
+  emoji_suggestion:
+    opencc_config: emoji.json
+    option_name: emoji_suggestion
+    tips: all
+  menu/page_size: 6
+  engine/filters/+:
+  - lua_filter@Multiline_filter
+  - lua_filter@Tip_Filter
+  engine/translators/+:
+  - table_translator@custom_phrase
+  - lua_translator@Date_Translator
+  - lua_translator@Daxie_Translator
+  - lua_translator@Unicode_Translator
+  - lua_translator@Emoji_Translator
+  - lua_translator@Lua_Tips
+
+  punctuator/import_preset: symbols
+  #recognizer/patterns/punct: '^/(([a-z]+)|(uc[0-9a-fA-F]{0,6}([^0-9a-fA-F]+[0-9a-fA-F]{0,6})*|\d{0,8}[hq]?(\d+)?[^0-9]?|1?\d|dx\d+(\.\d{0,2})?|\d+[hq]|[1-7][sxz]))$'
+  recognizer/patterns/punct: '^/(([a-z]+)|\?|(uc[0-9a-fA-F]{0,6}([^0-9a-fA-F]+[0-9a-fA-F]{0,6})*|\d{0,8}([hq]\d+)?[^0-9]?|\d{0,8}(g|n|nr)|1?\d|dx\d+(\.\d{0,2})?|\d{1,6}[hq]|[1-7][sxz]))$'
+
+  key_binder/bindings:
+    - { accept: semicolon, send: 2, when: has_menu}  #打字时，冒号选中第2个候选字发送
+    - { accept: apostrophe, send: 3, when: has_menu} #打字时，引号选中第3个候选字发送
+    - { accept: minus, send: Page_Up, when: paging} #减号向前翻页
+    - { accept: equal, send: Page_Down, when: has_menu} #等于号向后翻页
+    - { accept: Control+j, send: 4, when: has_menu}  #打字时，Ctrl+j选中第4个候选字发送
+    - { accept: Control+k, send: 5, when: has_menu}  #打字时，Ctrl+k选中第5个候选字发送
+    - { accept: Control+l, send: 6, when: has_menu}  #打字时，Ctrl+l选中第6个候选字发送

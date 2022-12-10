@@ -1,0 +1,24 @@
+patch:
+  __include: base:/patch
+  ###########################################################################
+  # 用户词典规则设定
+  custom_phrase:
+    dictionary: ""
+    user_dict: custom_phrase
+    db_class: stabledb
+    enable_completion: false
+    enable_sentence: false
+    initial_quality: 1
+  ###########################################################################
+  # 使用用户词典
+  translator/enable_user_dict: true 
+  # 允许句子
+  translator/enable_sentence: false
+  translator/enable_encoder: false
+  translator/encode_commit_history: true
+
+    #speller/max_code_length: 4
+  speller/auto_select: true
+  speller/auto_select_unique_candidate: true
+  speller/delimiter: "/"  #因为用了;'来做23词选择，所以原来的分词键要改成/
+
