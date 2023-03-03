@@ -8,7 +8,7 @@ patch:
   ascii_composer:
     good_old_caps_lock: true
     switch_key: {Caps_Lock: clear, Control_L: noop, Control_R: noop, Eisu_toggle: clear, Shift_L: commit_code, Shift_R: commit_code}
-  "menu/page_size": 9
+  "menu/page_size": 8
   schema_list:
     - {schema: english}
     - {schema: double_pinyin_flypy}

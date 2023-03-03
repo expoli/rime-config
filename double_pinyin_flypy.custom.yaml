@@ -40,7 +40,7 @@ patch:
   #載入朙月拼音擴充詞庫
   'translator/dictionary': luna_pinyin.extended
   'translator/preedit_format': {}
-  'translator/enable_correction': true
+  'translator/enable_correction': false
 
 
   # 自定义符号上屏
@@ -86,4 +86,13 @@ patch:
     enable_sentence: false # 混输时不出现带有图案的英文
     initial_quality: -0.5 # 英文候选词的位置, 数值越大越靠前。
 
+  key_binder/bindings:
+    # - { accept: period, send: 1, when: has_menu}  #打字时，句号选中第1个候选字发送
+    - { accept: semicolon, send: 2, when: has_menu}  #打字时，冒号选中第2个候选字发送
+    - { accept: apostrophe, send: 3, when: has_menu} #打字时，引号选中第3个候选字发送
+    - { accept: minus, send: Page_Up, when: paging} #减号向前翻页
+    - { accept: equal, send: Page_Down, when: has_menu} #等于号向后翻页
+    - { accept: Control+j, send: 4, when: has_menu}  #打字时，Ctrl+j选中第4个候选字发送
+    - { accept: Control+k, send: 5, when: has_menu}  #打字时，Ctrl+k选中第5个候选字发送
+    - { accept: Control+l, send: 6, when: has_menu}  #打字时，Ctrl+l选中第6个候选字发送
   

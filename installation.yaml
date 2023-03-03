@@ -2,6 +2,7 @@ distribution_code_name: Weasel
 distribution_name: "小狼毫"
 distribution_version: 0.14.3_dev_0.8
 install_time: "Fri Nov  4 17:12:27 2022"
-installation_id: "c974237c-2e0f-4688-9035-a47c25d1b346"
-rime_version: 1.7.3
-update_time: "Mon Nov 21 21:34:40 2022"
+installation_id: "my-windows-school-desktop"
+rime_version: 1.8.5
+sync_dir: "E:\\ProgramData\\Rime-Data-Sync-Dir"
+update_time: "Tue Feb 28 09:01:53 2023"

@@ -38,8 +38,8 @@ lost_temple:
 patch:
   __include: win11
   "style/blur_window": true
-  "style/color_font": false
-  "style/color_scheme": lost_temple
+  "style/color_font": true
+  "style/color_scheme": win11dark
 win10:
   "preset_color_schemes/win10black":
     back_color: 0x000000
@@ -146,7 +146,7 @@ win11:
     hilited_text_color: 0x1a1a1a
     label_color: 0x1a1a1a
     name: Win11Light
-    shadow_color: 0x00000000
+    shadow_color: 0x00bbggrr
     text_color: 0x1a1a1a
   "style/color_scheme": win11light
   "style/color_scheme_dark": win11dark
@@ -171,6 +171,6 @@ win11:
   "style/layout/round_corner": 6
   "style/layout/shadow_offset_x": 0
   "style/layout/shadow_offset_y": 0
-  "style/layout/shadow_radius": 8
+  "style/layout/shadow_radius": 0
   "style/layout/spacing": 20
   "style/mark_text": "☘"
