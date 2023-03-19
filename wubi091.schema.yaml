@@ -1,31 +1,8 @@
-# Rime schema settings
-# encoding: utf-8
-
-schema:
-  schema_id: wubi091
-  name: "五笔091"
-  version: "0.20"
-  author:
-    - 始创者 行走的风景
-  description: |
-    郁金香
-    码表源自 点儿词库
-    敲 z 键进入拼音反查
-  dependencies:
-    - pinyin_simp
-switches:
-  - name: ascii_mode
-    states: [ 中, 英 ]
-  - name: full_shape
-    states: [ 半, 全 ]
-  - name: ascii_punct
-    states: [ 。, ． ]
-  - name: extended_charset
-    states: [ 通, 扩 ]
-  - name: zh_trad
-    reset: 0
-    states: [ 简, 繁 ]
+customization: 3660603081
 engine:
+  filters:
+    - simplifier
+    - uniquifier
   processors:
     - ascii_composer
     - recognizer
@@ -45,48 +22,63 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
-  filters:
-    - simplifier
-    - uniquifier
-
-
-simplifier:
-  opencc_config: s2t.json
-  option_name: zh_trad
-
-speller:
-  delimiter: " ;'"
-  #max_code_length: 4 #顶字上屏 （在QQ聊天窗口出问题，会吃字，如“末笔识别”，会只留下“识别”。暂未找到解决办法。）
-  auto_select: true
-  auto_select_unique_candidate: true #无重码自动上屏
-
-translator:
-  dictionary: wubi091.extended
-  enable_charset_filter: true
-  enable_sentence: true
-  enable_encoder: true
-  encode_commit_history: true
-  max_phrase_length: 4
-  disable_user_dict_for_patterns:
-    - "^z.*$"
-  enable_user_dict: false #禁止词序调整
-
-reverse_lookup:
-  dictionary: pinyin_simp
-  prefix: "z"
-  suffix: "'"
-  preedit_format:
-    - xform/([nl])v/$1ü/
-    - xform/([nl])ue/$1üe/
-    - xform/([jqxy])v/$1u/
-
-punctuator:
-  import_preset: default
-
 key_binder:
   import_preset: default
-
+punctuator:
+  import_preset: default
 recognizer:
   import_preset: default
   patterns:
     reverse_lookup: "^z[a-z]*'?$"
+reverse_lookup:
+  dictionary: pinyin_simp
+  preedit_format:
+    - "xform/([nl])v/$1ü/"
+    - "xform/([nl])ue/$1üe/"
+    - "xform/([jqxy])v/$1u/"
+  prefix: z
+  suffix: "'"
+schema:
+  author:
+    - "始创者 行走的风景"
+  dependencies:
+    - pinyin_simp
+  description: |
+    郁金香
+    码表源自 点儿词库
+    敲 z 键进入拼音反查
+    
+  name: "五笔091"
+  schema_id: wubi091
+  version: 0.20.custom.3660603081
+simplifier:
+  opencc_config: s2t.json
+  option_name: zh_trad
+speller:
+  auto_select: true
+  auto_select_unique_candidate: true
+  delimiter: "`"
+switches:
+  - name: ascii_mode
+    states: ["中", "英"]
+  - name: full_shape
+    states: ["半", "全"]
+  - name: ascii_punct
+    states: ["。", "．"]
+  - name: extended_charset
+    states: ["通", "扩"]
+  - name: zh_trad
+    reset: 0
+    states: ["简", "繁"]
+translator:
+  comment_format:
+    "+": ["xform/^~//"]
+  dictionary: wubi091.extended
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+  enable_charset_filter: true
+  enable_encoder: false
+  enable_sentence: false
+  enable_user_dict: false
+  encode_commit_history: true
+  max_phrase_length: 4

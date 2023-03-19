@@ -1,5 +1,6 @@
 patch:
   __include: base:/patch
+  schema/icon: 09wubi.ico
   ###########################################################################
   # 用户词典规则设定
   custom_phrase:

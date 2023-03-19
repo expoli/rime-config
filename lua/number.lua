@@ -106,12 +106,10 @@ local function split(input, delimiter)
 end
 
 function Daxie_Translator(input, seg, env)
-	if not (input:match("^/dx")) then return end
 	local segment = env.engine.context.composition:back()
-	if input:match("^/dx$") then
-		segment.prompt = "/dx\\d+(.\\d\\d)?\t大写金额"
-	end
-	if input:match('^/dx%d+') then
+	if not input:match("^/dx") then return end
+	segment.prompt = "/dx\\d\\+(.\\d\\d)?大写金额" 
+	if string.match(input, '^/dx%d+') then
 		local num = split(string.sub(input, 4), '.')[1]
 		local digit = split(string.sub(input, 4), '.')[2]
 

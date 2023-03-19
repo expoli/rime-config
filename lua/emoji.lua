@@ -1908,7 +1908,7 @@ local ranges = {
 -- punct start prefix
 local prefix = "/em"
 -- calc prompt
-local function prompt_str(input, limit, datas)
+local function prompt_str(input, limit, datas, subfix)
 	local prompt = ""
 	local cnt = 0
 	for k, v in pairs(ranges) do
@@ -1918,8 +1918,24 @@ local function prompt_str(input, limit, datas)
 		cnt = cmpl and (cnt + 1) or cnt
 		if cnt >= limit then break end
 	end
-	prompt = datas and "[" .. datas.tip .. "] " .. prompt or prompt
+	prompt = datas and "[" .. datas.tip .. subfix .. "] " .. prompt or prompt
 	return prompt
+end
+function AddSkinColor(emoji, skincode)
+    local outemoji = ""
+    local codes = {}
+    for p, c in utf8.codes(emoji) do table.insert(codes, c) end
+    if #codes == 1 then outemoji = emoji .. skincode
+    elseif #codes == 3 and codes[2] == 8205 then 
+        outemoji  = utf8.char(codes[1]) .. skincode .. utf8.char(codes[2]) .. utf8.char(codes[3])
+    elseif #codes == 4 and codes[2] == 8205 then
+        outemoji  = utf8.char(codes[1]) .. skincode .. utf8.char(codes[2]) .. utf8.char(codes[3]) .. utf8.char(codes[4])
+    elseif #codes == 5 and codes[3] == 8205 then
+        outemoji  = utf8.char(codes[1]) .. utf8.char(codes[2])  .. skincode .. utf8.char(codes[3]) .. utf8.char(codes[4]) .. utf8.char(codes[5])
+	else
+		outemoji = emoji .. skincode
+    end
+    return outemoji
 end
 -- translator
 function Emoji_Translator(input, seg, env)
@@ -1927,15 +1943,47 @@ function Emoji_Translator(input, seg, env)
 	if not input:match("^" .. prefix) then return end
 	local segment = env.engine.context.composition:back()
 	local page_size = env.engine.schema.page_size
-	local datas = ranges[ input:match(prefix .. "(.*)$") ]
+	-- skin color subfix with start, prepare strings and datas
+	-- jq, zq, zd, zs,js
+	-- 1f3fb, 1f3fc, 1f3fd, 1f3fe, 1f3ff
+	local datas
+	local fsprefix = ""
+	local fssbufix = ""
+
+	if input:match(prefix .. "(%w+)jq$") then
+		datas = ranges[ input:match(prefix .. "(%w+)jq$") ]
+		fsprefix = utf8.char(0x1f3fb)
+		fssbufix = "-较浅"
+	elseif input:match(prefix .. "(%w+)zq$") then
+		datas = ranges[ input:match(prefix .. "(%w+)zq$") ]
+		fsprefix = utf8.char(0x1f3fc)
+		fssbufix = "-中浅"
+	elseif input:match(prefix .. "(%w+)zd$") then
+		datas = ranges[ input:match(prefix .. "(%w+)zd$") ]
+		fsprefix = utf8.char(0x1f3fd)
+		fssbufix = "-中等"
+	elseif input:match(prefix .. "(%w+)zs$") then
+		datas = ranges[ input:match(prefix .. "(%w+)zs$") ]
+		fsprefix = utf8.char(0x1f3fe)
+		fssbufix = "-中深"
+	elseif input:match(prefix .. "(%w+)js$") then
+		datas = ranges[ input:match(prefix .. "(%w+)js$") ]
+		fsprefix = utf8.char(0x1f3ff)
+		fssbufix = "-较深"
+	elseif input:match(prefix .. "(.*)$") then
+		datas = ranges[ input:match(prefix .. "(.*)$") ]
+	end
+	-- skin color subfix with end
 	-- prompt string
-	segment.prompt = prompt_str(input, page_size, datas)
+	segment.prompt = prompt_str(input, page_size, datas, fssbufix)
 	-- not matched, return
 	if not datas then return end
 	-- yield candidates
 	for idx = datas._start, datas._end do
+		local candtxt = AddSkinColor(emoji_candidate_info[idx].cand, fsprefix)
 		--if emoji_candidate_info[idx].ver == nil then
-			yield(Candidate("emoji", seg._start, seg._end, emoji_candidate_info[idx].cand, emoji_candidate_info[idx].comment))
+			--yield(Candidate("emoji", seg._start, seg._end, emoji_candidate_info[idx].cand .. fsprefix, emoji_candidate_info[idx].comment))
+			yield(Candidate("emoji", seg._start, seg._end, candtxt, emoji_candidate_info[idx].comment))
 		--end
 	end
 end

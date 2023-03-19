@@ -8,6 +8,8 @@ patch:
   ascii_composer:
     good_old_caps_lock: true
     switch_key: {Caps_Lock: clear, Control_L: noop, Control_R: noop, Eisu_toggle: clear, Shift_L: commit_code, Shift_R: commit_code}
+  menu/alternative_select_labels: [ ①, ②, ③, ④, ⑤, ⑥, ⑦, ⑧, ⑨ ]
+  # menu/alternative_select_labels: [ 〡, 〢, 〣, 〤, 〥, 〦, 〧, 〨, 〩 ]    
   "menu/page_size": 8
   schema_list:
     - {schema: english}

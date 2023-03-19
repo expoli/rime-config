@@ -1,6 +1,6 @@
 require("mydate")
 require("unicode")
--- require("number")
+require("number")
 require("emoji")
 require("basefunctions")
 
@@ -15,13 +15,13 @@ function Lua_Tips(input,seg, env)
 		local segment = env.engine.context.composition:back()
 		segment.prompt = "Lua快捷输入帮助"
 		local emoji_tips = Emoji_Tips()
-		-- local daxie_tips = Daxie_Tips()
+		local daxie_tips = Daxie_Tips()
 		local unicode_tips = Unicode_Tips()
 		local date_tips = Date_Tips()
 		yield(Candidate("tips", seg._start, seg._end, emoji_tips, ""))
 		yield(Candidate("tips", seg._start, seg._end, date_tips, ""))
 		yield(Candidate("tips", seg._start, seg._end, unicode_tips, ""))
-		-- yield(Candidate("tips", seg._start, seg._end, daxie_tips, ""))
+		yield(Candidate("tips", seg._start, seg._end, daxie_tips, ""))
 	end
 end
 --must after function definitions

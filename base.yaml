@@ -21,6 +21,7 @@ patch:
   - lua_translator@Emoji_Translator
   - lua_translator@Lua_Tips
 
+  engine/processors/@before 0: lua_processor@init_env
   punctuator/import_preset: symbols
   #recognizer/patterns/punct: '^/(([a-z]+)|(uc[0-9a-fA-F]{0,6}([^0-9a-fA-F]+[0-9a-fA-F]{0,6})*|\d{0,8}[hq]?(\d+)?[^0-9]?|1?\d|dx\d+(\.\d{0,2})?|\d+[hq]|[1-7][sxz]))$'
   recognizer/patterns/punct: '^/(([a-z]+)|\?|(uc[0-9a-fA-F]{0,6}([^0-9a-fA-F]+[0-9a-fA-F]{0,6})*|\d{0,8}([hq]\d+)?[^0-9]?|\d{0,8}(g|n|nr)|1?\d|dx\d+(\.\d{0,2})?|\d{1,6}[hq]|[1-7][sxz]))$'

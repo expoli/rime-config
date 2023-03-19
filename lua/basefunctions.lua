@@ -12,14 +12,30 @@ function single_char_first_filter(input)
 	end
 end
 
--- 在词典里面候选支持\r分割分行
+-- 在词典里面候选支持\r, \r\n, \n分割分行
 -- 方案patch中要添加以下两行
 --  engine/filters/+:
 --  - lua_filter@Multiline_filter
 function Multiline_filter(input)
 	for cand in input:iter() do
-		if cand.text:match("\\r") then
-			local nt = string.gsub(cand.text, "\\r", utf8.char(13))
+		local nt = cand.text
+		if nt:match("&nbsp") then
+			nt = nt:gsub("&nbsp", " ")	
+		end
+		if nt:match("\\r\\n") then
+			nt = string.gsub(nt, "\\r\\n", "\r")
+			local cnd = Candidate("", cand.start, cand._end, nt, cand.comment)
+			yield(cnd)
+		elseif nt:match("\\r") then
+			nt = string.gsub(nt, "\\r", "\r")
+			local cnd = Candidate("", cand.start, cand._end, nt, cand.comment)
+			yield(cnd)
+		elseif nt:match("\\n") then
+			nt = string.gsub(nt, "\\n", "\r")
+			local cnd = Candidate("", cand.start, cand._end, nt, cand.comment)
+			yield(cnd)
+		elseif nt:match("<br>") then
+			nt = string.gsub(nt, "<br>", "\r")
 			local cnd = Candidate("", cand.start, cand._end, nt, cand.comment)
 			yield(cnd)
 		else
