@@ -1,46 +1,92 @@
+_vertical_text:
+  "style/layout/max_height": 0
+  "style/vertical_text": true
+  "style/vertical_text_left_to_right": false
+  "style/vertical_text_with_wrap": false
+_vertical_text_wrap:
+  __include: _vertical_text
+  "style/layout/max_height": 600
+  "style/vertical_text_with_wrap": true
 customization:
   distribution_code_name: Weasel
   distribution_version: 0.14.3_dev_0.8
   generator: "Weasel::UIStyleSettings"
-  modified_time: "Thu Nov 24 16:36:03 2022"
-  rime_version: 1.7.3
+  modified_time: "Tue Mar 21 09:22:32 2023"
+  rime_version: 1.8.5
+font_face_settings:
+  "style/comment_font_face": "NotFont, Noto Color Emoji SVG:80, Arial:600:6ff, Segoe UI Emoji:80, LXGW Wenkai Narrow, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
+  "style/font_face": "NotFont, Noto Color Emoji SVG:80, Arial:600:6ff, Segoe UI Emoji:80, LXGW Wenkai Narrow, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
+  "style/label_font_face": "NotFont, Noto Color Emoji SVG:80, Arial:600:6ff, Segoe UI Emoji:80, LXGW Wenkai Narrow, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
+font_size_settings:
+  "style/comment_font_point": 16
+  "style/font_point": 20
+  "style/label_font_point": 16
 lost_temple:
+  "preset_color_schemes/lost_temple/back_color": 0x444444
   "preset_color_schemes/lost_temple/border_color": 0x00444444
   "preset_color_schemes/lost_temple/candidate_back_color": 0x00444444
   "preset_color_schemes/lost_temple/candidate_shadow_color": 0x00000000
   "preset_color_schemes/lost_temple/hilited_candidate_back_color": 0x82e6ca
-  "preset_color_schemes/lost_temple/hilited_candidate_shadow_color": 0xa0000000
+  "preset_color_schemes/lost_temple/hilited_candidate_shadow_color": 0xc0000000
+  "preset_color_schemes/lost_temple/hilited_label_color": 0x000000
+  "preset_color_schemes/lost_temple/hilited_mark_color": 0x444444
   "preset_color_schemes/lost_temple/hilited_shadow_color": 0x00000000
   "preset_color_schemes/lost_temple/shadow_color": 0x00000000
+  "style/blur_window": true
   "style/color_scheme": lost_temple
-  "style/comment_font_face": "NotFont, Segoe UI Emoji:80, 汉仪仿宋(GB18030版), LXGW Wenkai Narrow, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/comment_font_point": 10
-  "style/font_face": "NotFont, Segoe UI Emoji:80, 汉仪仿宋(GB18030版), LXGW Wenkai Narrow, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/font_point": 24
-  "style/fullscreen": false
+  "style/color_scheme_dark": lost_temple
   "style/horizontal": true
   "style/inline_preedit": true
-  "style/label_font_face": "NotFont, Segoe UI Emoji:80, 汉仪仿宋(GB18030版), LXGW Wenkai Narrow, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/label_font_point": 10
   "style/layout/align_type": center
   "style/layout/border": 2
   "style/layout/candidate_spacing": 10
   "style/layout/corner_radius": 10
   "style/layout/hilite_padding": 4
   "style/layout/hilite_spacing": 10
-  "style/layout/hilited_corner_radius": 5
   "style/layout/margin_x": 25
   "style/layout/margin_y": 25
+  "style/layout/round_corner": 5
   "style/layout/shadow_offset_x": 10
   "style/layout/shadow_offset_y": 10
-  "style/layout/shadow_radius": 8
+  "style/layout/shadow_radius": 6
   "style/layout/spacing": 15
-patch:
-  __include: win11
-  "style/blur_window": true
-  "style/color_font": true
-  "style/color_scheme": win11dark
-win10:
+my_color_schemes:
+  "preset_color_schemes/fakemac":
+    back_color: 0x5f555555
+    border_color: 0x00555555
+    candidate_back_color: 0x0055555
+    candidate_text_color: 0x000000
+    comment_text_color: 0x000000
+    hilited_back_color: 0xcf555555
+    hilited_candidate_back_color: 0x5f555555
+    hilited_candidate_text_color: 0xffffff
+    hilited_comment_text_color: 0xf0f0f0
+    hilited_label_color: 0xd0d0d0
+    hilited_mark_color: 0xfa5f00
+    hilited_text_color: 0xf0f0f0
+    label_color: 0x000000
+    name: fakemac
+    shadow_color: 0x00000000
+    text_color: 0xf0f0f0
+  "preset_color_schemes/oldbook":
+    back_color: 0xdcf5f5
+    border_color: 0xc202020
+    candidate_back_color: 0x01d07c3a
+    candidate_border_color: 0x20d07c3a
+    candidate_text_color: 0x404040
+    comment_text_color: 0x404040
+    hilited_back_color: 0x00202020
+    hilited_candidate_back_color: 0x01d07c3a
+    hilited_candidate_border_color: 0xd07c3a
+    hilited_candidate_text_color: 0x202020
+    hilited_comment_text_color: 0x202020
+    hilited_label_color: 0x202020
+    hilited_mark_color: 0xff0000
+    hilited_text_color: 0x202020
+    label_color: 0x404040
+    name: oldbook
+    shadow_color: 0x60000000
+    text_color: 0x404040
   "preset_color_schemes/win10black":
     back_color: 0x000000
     border_color: 0x347440
@@ -57,120 +103,118 @@ win10:
     shadow_color: 0x00000000
     text_color: 0xffffff
   "preset_color_schemes/win10blue":
-    back_color: 0xffffff
+    back_color: 0x1fffffff
     border_color: 0xd77800
     candidate_back_color: 0x00ffffff
     candidate_shadow_color: 0x00ffffff
     candidate_text_color: 0x000000
     comment_text_color: 0x222222
-    hilited_back_color: 0xd77800
+    hilited_back_color: 0x00ffffff
     hilited_candidate_back_color: 0xd77800
     hilited_candidate_shadow_color: 0x00d77800
     hilited_candidate_text_color: 0xffffff
     hilited_comment_text_color: 0xffffff
     hilited_label_color: 0xffffff
     hilited_shadow_color: 0x00d77800
-    hilited_text_color: 0xffffff
+    hilited_text_color: 0x000000
     label_color: 0x838383
     name: Win10Blue
-    shadow_color: 0x20000000
+    shadow_color: 0x00000000
     text_color: 0x000000
   "preset_color_schemes/win10gray":
-    back_color: 0xf4f4f4
-    border_color: 0xcccccc
-    candidate_text_color: 0x000000
-    comment_text_color: 0x666666
-    hilited_back_color: 0xffffff
-    hilited_candidate_back_color: 0xcccccc
+    back_color: 0x4ff4f4f4
+    border_color: 0x4fcccccc
+    candidate_text_color: 0x222222
+    comment_text_color: 0x888888
+    hilited_back_color: 0x4ff4f4f4
+    hilited_candidate_back_color: 0x4fcccccc
     hilited_candidate_text_color: 0x000000
     hilited_comment_text_color: 0x555555
-    hilited_label_color: 0x444444
+    hilited_label_color: 0x555555
+    hilited_mark_color: 0xd77800
     hilited_text_color: 0x000000
     label_color: 0x888888
     name: Win10Gray
     shadow_color: 0x20000000
     text_color: 0x000000
-  "style/color_scheme": win10blue
-  "style/color_scheme_dark": win10gray
-  "style/comment_font_face": "NotFont, Segoe UI Emoji:80, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/comment_font_point": 20
-  "style/font_face": "NotFont, Segoe UI Emoji:80, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/font_point": 20
-  "style/fullscreen": false
-  "style/horizontal": true
-  "style/inline_preedit": true
-  "style/label_font_face": "NotFont, Segoe UI Emoji:80, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/label_font_point": 20
-  "style/layout/align_type": center
-  "style/layout/border": 2
-  "style/layout/candidate_spacing": 20
-  "style/layout/corner_radius": 6
-  "style/layout/hilite_padding": 10
-  "style/layout/hilite_spacing": 10
-  "style/layout/margin_x": 10
-  "style/layout/margin_y": 10
-  "style/layout/min_height": 0
-  "style/layout/round_corner": 6
-  "style/layout/shadow_offset_x": 4
-  "style/layout/shadow_offset_y": 4
-  "style/layout/shadow_radius": 0
-  "style/layout/spacing": 20
-win11:
   "preset_color_schemes/win11dark":
     back_color: 0x303030
     border_color: 0xc202020
-    candidate_back_color: 0x00303030
+    candidate_back_color: 0x10d07c3a
     candidate_text_color: 0xc9c9c9
     comment_text_color: 0xc9c9c9
-    hilited_back_color: 0x202020
-    hilited_candidate_back_color: 0x202020
+    hilited_back_color: 0x20202020
+    hilited_candidate_back_color: 0x7fd07c3a
+    hilited_candidate_border_color: 0xd07c3a
     hilited_candidate_text_color: 0xf9f9f9
     hilited_comment_text_color: 0xf9f9f9
     hilited_label_color: 0xf9f9f9
+    hilited_mark_color: 0xf07c3a
     hilited_text_color: 0xf9f9f9
     label_color: 0xc9c9c9
     name: Win11Dark
-    shadow_color: 0x16000000
+    shadow_color: 0x60000000
     text_color: 0xc9c9c9
   "preset_color_schemes/win11light":
-    back_color: 0x10f9f9f9
-    border_color: 0x10f0f0f0
+    back_color: 0x5ff9f9f9
+    border_color: 0x1f9f9f9f
+    candidate_back_color: 0x2ff9f9f9
     candidate_text_color: 0x000000
+    comment_back_color: 0x00f9f9f9
     comment_text_color: 0x666666
-    hilited_back_color: 0xffffff
-    hilited_candidate_back_color: 0xf0f0f0
+    hilited_back_color: 0x1ff9f9f9
+    hilited_candidate_back_color: 0x2ff97979
     hilited_candidate_text_color: 0x1a1a1a
     hilited_comment_text_color: 0x1a1a1a
     hilited_label_color: 0x1a1a1a
-    hilited_mark_color: 0x1a1a1a
+    hilited_mark_color: 0xfa5f00
     hilited_text_color: 0x1a1a1a
     label_color: 0x1a1a1a
-    name: Win11Light
-    shadow_color: 0x00bbggrr
+    name: Win11light
+    shadow_color: 0x00000000
     text_color: 0x1a1a1a
-  "style/color_scheme": win11light
-  "style/color_scheme_dark": win11dark
-  "style/comment_font_face": "NotFont, Segoe UI Emoji:80, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/comment_font_point": 20
-  "style/font_face": "NotFont, Segoe UI Emoji:80, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/font_point": 20
-  "style/fullscreen": false
+patch:
+  __include: font_size_settings
+  "style/color_scheme": lost_temple_with_shadow
+  "style/layout/max_height": 600
+  "style/layout/max_width": 800
+  "style/mark_text": "|"
+win10:
+  "style/blur_window": true
+  "style/color_scheme": win10gray
+  "style/color_scheme_dark": win10blue
   "style/horizontal": true
   "style/inline_preedit": true
-  "style/label_font_face": "NotFont, Segoe UI Emoji:80, Microsoft Yahei, 全宋体-1, 全宋体-2, 全宋体-3, 全宋体-F, 全宋体-X, 全宋体(调和), 全宋体(等宽)"
-  "style/label_font_point": 20
+  "style/layout/align_type": center
+  "style/layout/border": 1
+  "style/layout/candidate_spacing": 10
+  "style/layout/corner_radius": 5
+  "style/layout/hilite_padding": 10
+  "style/layout/hilite_spacing": 15
+  "style/layout/margin_x": 10
+  "style/layout/margin_y": 10
+  "style/layout/min_height": 0
+  "style/layout/round_corner": 0
+  "style/layout/shadow_offset_x": 5
+  "style/layout/shadow_offset_y": 5
+  "style/layout/shadow_radius": 0
+  "style/layout/spacing": 20
+win11:
+  "style/blur_window": true
+  "style/color_scheme": win11dark
+  "style/color_scheme_dark": win11light
+  "style/horizontal": true
   "style/layout/align_type": center
   "style/layout/border": 2
   "style/layout/candidate_spacing": 20
-  "style/layout/corner_radius": 10
+  "style/layout/corner_radius": 20
   "style/layout/hilite_padding": 5
-  "style/layout/hilite_spacing": 10
+  "style/layout/hilite_spacing": 20
   "style/layout/margin_x": 15
   "style/layout/margin_y": 15
   "style/layout/min_height": 0
-  "style/layout/round_corner": 6
+  "style/layout/round_corner": 10
   "style/layout/shadow_offset_x": 0
   "style/layout/shadow_offset_y": 0
-  "style/layout/shadow_radius": 0
+  "style/layout/shadow_radius": 10
   "style/layout/spacing": 20
-  "style/mark_text": "☘"

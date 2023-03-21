@@ -12,6 +12,6 @@ patch:
   # menu/alternative_select_labels: [ 〡, 〢, 〣, 〤, 〥, 〦, 〧, 〨, 〩 ]    
   "menu/page_size": 8
   schema_list:
-    - {schema: english}
+    - {schema: easy_en}
     - {schema: double_pinyin_flypy}
     - {schema: luna_pinyin}
